@@ -11,4 +11,9 @@ To Run React:
 To Run Flask:
 - Run the venv
 - Go to the 'flask-server' directory
-- ENter the command 'python -m flask run'
+- Enter the command 'python -m flask run'
+
+
+To Run api and database test.py files:
+- Go to the api/database directory in the console
+- Run the .py file using python
