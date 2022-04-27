@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {CTA, Brand, Navbar} from './components';
+import {Header} from './containers';
+import {BrowserRouter as Router, Routes, Route, Link  } from "react-router-dom";
+import Home from "./WebPages/Home";
+import About from "./WebPages/About";
+import Search from "./WebPages/Search";
 
 function App() {
-  
+    const sayHello = () => {
+	console.log("Log Hello");
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Search" element={<Search />} />
+      </Routes>
+    </Router>
   );
 }
 
