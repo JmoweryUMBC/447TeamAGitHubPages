@@ -1,13 +1,13 @@
 import React from 'react'
 import {CTA, Brand, Navbar} from '../components';
-import {Header} from '../containers';
+import DBHeader from '../containers/DBHeader/DBHeader';
 
-function Search() {
+function DBSearch() {
   return (
     <div>
       <Navbar />
-      <Header />
+      <DBHeader />
     </div>
   );
 }
-export default Search
+export default DBSearch

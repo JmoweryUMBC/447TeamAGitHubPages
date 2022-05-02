@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 import {CTA, Brand, Navbar} from './components';
-import {Header} from './containers';
 import {BrowserRouter as Router, Routes, Route, Link  } from "react-router-dom";
-import Home from "./WebPages/Home";
+import VTSearch from "./WebPages/VTSearch";
 import About from "./WebPages/About";
-import Search from "./WebPages/Search";
+import DBSearch from "./WebPages/DBSearch";
 
 function App() {
     const sayHello = () => {
@@ -14,9 +13,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<VTSearch />} />
         <Route path="/About" element={<About />} />
-        <Route path="/Search" element={<Search />} />
+        <Route path="/DBSearch" element={<DBSearch />} />
       </Routes>
     </Router>
   );

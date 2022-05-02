@@ -1,13 +1,13 @@
 import React from 'react'
 import {CTA, Brand, Navbar} from '../components';
-import {Header} from '../containers';
+import VTHeader from '../containers/VTHeader/VTHeader';
 
-function Home() {
+function VTSearch() {
   return (
     <div>
       <Navbar />
-      <Header />
+      <VTHeader />
     </div>
   );
 }
-export default Home
+export default VTSearch

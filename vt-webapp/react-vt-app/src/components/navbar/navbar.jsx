@@ -5,8 +5,8 @@ import {useNavigate} from "react-router-dom";
 import logo from '../../images/viruslogo.png'
 const Menu = () => (
     <>
-    <p><Link to="/">Home</Link></p>
-    <p><Link to="/Search">Search</Link></p>
+    <p><Link to="/">VirusTotal Search</Link></p>
+    <p><Link to="/DBSearch">Database Search</Link></p>
     <p><Link to="/About">About</Link></p>
     </>
 )
