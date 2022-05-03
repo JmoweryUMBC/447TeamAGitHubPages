@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(127, 196, 252);
+    background-image: url(../../images/backgroundphoto.jpeg);
+    background-position: 50% 10%;
     
     padding-left: 3rem;
     padding-top: .5rem;
@@ -37,7 +38,7 @@
 .virus_navbar-links-container p,
 .virus_navbar-sign p,
 .virus_navbar-menu-container p{
-    color: rgb(5, 5, 5);
+    color: rgb(252, 250, 250);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
     text-transform: capitalize;

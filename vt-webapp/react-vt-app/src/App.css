@@ -37,7 +37,8 @@
   }
 }
 body {
-  background: rgb(127, 196, 252);;
+  background-image: url(./images/backgroundphoto.jpeg);
+  background-position: 50% 10%;
 }
 
 * {

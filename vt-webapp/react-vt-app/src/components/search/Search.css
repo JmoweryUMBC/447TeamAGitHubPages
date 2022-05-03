@@ -1,38 +1,23 @@
-.gradient_text{
-    color: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-}
-.Virus_image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.Home_header{
+.SearchBlock{
     display: flex;
     justify-content: center;
+    padding-top: 100px;
 }
 
-.Home_header_content{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-.Home_input{
-    width: 100%;
+.Search_Input{
+    width: 60%;
     margin: 2rem 0 1rem;
     display: flex;
 }
 
-.Home_input input{
+
+.Search_Input input{
     flex: 2;
     width: 100%;
     min-height: 50px;
-    background: rgb(54, 164, 253);
-    border: 2px solid #1186fc;
+    background: url(../../images/backgroundphoto.jpeg);
+    background-position: 50% 20%;
+    border: 2px solid #030303;
     border-radius: 5px 0 0 5px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
@@ -41,7 +26,7 @@
     padding: 0 1rem;
 }
 
-.Home_input button{
+.Search_Input button{
     flex: 0.6;
     width: 100%;
     min-height: 50px;
@@ -50,6 +35,7 @@
     color: white;
     outline: none;
     padding: 0 1rem;
-    background: rgb(5, 0, 0);
+    background: url(../../images/backgroundphoto.jpeg);
+    background-position: 50% 20%;
     border-radius: 5px 0 0 5px;
 }
