@@ -1,32 +1,56 @@
 .SearchBlock{
     display: flex;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .Search_Input{
-    width: 60%;
+    width: 50%;
     margin: 2rem 0 1rem;
     display: flex;
 }
 
-
 .Search_Input input{
     flex: 2;
     width: 100%;
-    min-height: 50px;
+    min-height: 30px;
     background: url(../../images/backgroundphoto.jpeg);
-    background-position: 50% 20%;
-    border: 2px solid #030303;
-    border-radius: 5px 0 0 5px;
+    background-position: 50% 80%;
+    border-left: 2px  solid #030303;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 25px 0 0 25px;
+    border-left: 0 solid;
+    border-left-color: url(../../images/backgroundphoto.jpeg);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
     line-height: 27px;
-    color: #87c1fc;
+    color: white;
     padding: 0 1rem;
+    outline: black;
+}
+.Search_Input SearchIcon{
+    outline: blanchedalmond;
+}
+.Search_icon{
+    height: 60px;
+    width: 50px;
+    background: url(../../images/backgroundphoto.jpeg);
+    background-position: 70% 80%;
+    display: grid;
+    place-items: center;
+    border-right: 2px solid #030303;
+    border-top: 2px solid #030303;
+    border-bottom: 2px solid #030303;
+    border-radius: 0 25px 25px 0;
 }
 
-.Search_Input button{
+.Search_icon svg{
+    font-size: 35px;
+}
+
+.Search_Input Button{
     flex: 0.6;
     width: 100%;
     min-height: 50px;
@@ -36,6 +60,6 @@
     outline: none;
     padding: 0 1rem;
     background: url(../../images/backgroundphoto.jpeg);
-    background-position: 50% 20%;
-    border-radius: 5px 0 0 5px;
+    background-position: 50% 80%;
+    border-radius: 25px;
 }
