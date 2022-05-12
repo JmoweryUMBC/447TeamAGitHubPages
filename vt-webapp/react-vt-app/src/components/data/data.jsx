@@ -2,6 +2,8 @@ import React from 'react'
 import './data.css';
 import Data from './data.json';
 const data = () => {
+    return(
+    <>
     <div className= 'posts'>
       { Data.map(post => {
           return (
@@ -13,5 +15,7 @@ const data = () => {
         })
       }
       </div>
+    </>
+    )
 }
 export default data
