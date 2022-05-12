@@ -1,5 +1,5 @@
 import React from 'react'
-import {CTA, Brand, Navbar, Search} from '../components';
+import {Data, Brand, Navbar, VTSearchBar} from '../components';
 import VTHeader from '../containers/VTHeader/VTHeader';
 
 function VTSearch() {
@@ -7,7 +7,7 @@ function VTSearch() {
     <div>
       <Navbar />
       <VTHeader />
-      <VTSearch />
+      <VTSearchBar />
     </div>
   );
 }

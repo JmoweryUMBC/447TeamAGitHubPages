@@ -1,9 +1,9 @@
 import React from 'react';
-import './DBSearch.css';
+import './DBSearchBar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 
-const VTSearch = () => {
+const DBSearchBar = () => {
     return (
     <div className = 'SearchBlock'>
             <div className = "Search_Input">
@@ -14,4 +14,4 @@ const VTSearch = () => {
     )
 }
 
-export default VTSearch
+export default DBSearchBar
