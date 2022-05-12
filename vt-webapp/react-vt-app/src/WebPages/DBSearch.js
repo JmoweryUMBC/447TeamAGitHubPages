@@ -7,6 +7,7 @@ function DBSearch() {
     <div>
       <Navbar />
       <DBHeader />
+      <DBSearch />
     </div>
   );
 }

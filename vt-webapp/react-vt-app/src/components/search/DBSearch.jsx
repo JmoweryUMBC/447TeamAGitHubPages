@@ -1,9 +1,9 @@
 import React from 'react';
-import './Search.css';
+import './DBSearch.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 
-const Search = () => {
+const DBSearch = () => {
     return (
     <div className = 'SearchBlock'>
             <div className = "Search_Input">
@@ -14,4 +14,4 @@ const Search = () => {
     )
 }
 
-export default Search
+export default DBSearch

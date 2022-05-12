@@ -7,7 +7,7 @@ function VTSearch() {
     <div>
       <Navbar />
       <VTHeader />
-      <Search />
+      <VTSearch />
     </div>
   );
 }
