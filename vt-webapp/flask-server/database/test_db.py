@@ -1,25 +1,33 @@
 import dbInteraction
 
 while(True):
-    print("1. Search Database")
+    print("\n1. Search Database")
     print("2. Add to Database")
     print("3. Delete from Database")
     
     option = input("Option Number: ")
     
     if(option == '1'):
-        param = input("Partial/Complete Hash to Search For: ")
-        resList = dbInteraction.search(param)
-        resListSize = 0
-        
-        for res in resList:
-            print("Found:", res[0])
-            resListSize+=1
-        print("Found a total of", resListSize, "results.")
+        done = False
+        while(not done):
+            param = input("Hash to Search For: ")
+            
+            try:
+                resList = dbInteraction.search(param)
+                print("Found:", resList[0][0])
+                done = True
+            except ValueError as error:
+                print(type(error).__name__ + ":", error)
         
     elif(option == '2'):
         param = input("Complete Hash to Add: ")
-        dbInteraction.add(param)
+        error = dbInteraction.add(param)
+        
+        if(error):
+            print(type(error).__name__ + ":", error)
     elif(option == '3'):
         param = input("Complete Hash to Remove: ")
-        dbInteraction.delete(param)
+        error = dbInteraction.delete(param)
+        
+        if(error):
+            print(type(error).__name__ + ":", error)

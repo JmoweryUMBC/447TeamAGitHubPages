@@ -5,17 +5,14 @@ while(True):
     error = False
 
     hashNum = input("\nEnter hash for VirusTotal search: ")
-    response = vtapi.hashLookup(hashNum)
+
+    if(hashNum == "exit" or hashNum == "quit"):
+        break
 
     try:
-        result = response.json()
-    except:
-        apierror = True
-        print("Error: Invalid API Key")
+        result = vtapi.hashLookup(hashNum)
+        print("\nFile Hash: " + result['md5'])
+        print("VirusTotal Feedback: " + str(result['positives']) + "/" + str(result['total']) + " anti-viruses detected a virus.")
+    except ValueError as error:
+        print(type(error).__name__ + ":", error)
         
-    if (not error):
-        if (result['response_code'] == 0):
-            print("\nCould not find hash in VirusTotal Database")
-        elif (result['response_code'] == 1):
-            print("\nFile Hash: " + hashNum)
-            print("VirusTotal Feedback: " + str(result['positives']) + "/" + str(result['total']) + " anti-viruses detected a virus.")
