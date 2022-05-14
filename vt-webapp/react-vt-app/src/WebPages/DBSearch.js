@@ -9,16 +9,6 @@ function DBSearch() {
       <Navbar />
       <DBHeader />
       <DBSearchBar />
-      <div className= 'posts'>
-        { Virusinfop.map(files => {
-          return (
-            <>
-            <h4>{ files.total }</h4>
-            </>
-          )
-        })
-      }
-      </div>
     </div>
   );
 }
