@@ -25,26 +25,21 @@ const data = () => {
               <tbody>
               <tr>
                 <td>Bkav</td>
-                if({Virusinfo["scans"]["Bkav"]["detected"]}){
-                  <td>True</td>
-                }
-                else{
-                  <td>False</td>
-                }
+                <td>{String(Virusinfo["scans"]["Bkav"]["detected"])}</td>
                 <td>{Virusinfo["scans"]["Bkav"]["version"]}</td>
                 <td>{Virusinfo["scans"]["Bkav"]["result"]}</td>
                 <td>{Virusinfo["scans"]["Bkav"]["update"]}</td>
               </tr>
               <tr>
                 <td>Lionic</td>
-                <td>{Virusinfo["scans"]["Lionic"]["detected"]}</td>
+                <td>{String(Virusinfo["scans"]["Lionic"]["detected"])}</td>
                 <td>{Virusinfo["scans"]["Lionic"]["version"]}</td>
                 <td>{Virusinfo["scans"]["Lionic"]["result"]}</td>
                 <td>{Virusinfo["scans"]["Lionic"]["update"]}</td>
               </tr>
               <tr>
                 <td>MicroWorld-eScan</td>
-                <td>{Virusinfo["scans"]["MicroWorld-eScan"]["detected"]}</td>
+                <td>{String(Virusinfo["scans"]["MicroWorld-eScan"]["detected"])}</td>
                 <td>{Virusinfo["scans"]["MicroWorld-eScan"]["version"]}</td>
                 <td>{Virusinfo["scans"]["MicroWorld-eScan"]["result"]}</td>
                 <td>{Virusinfo["scans"]["MicroWorld-eScan"]["update"]}</td>
