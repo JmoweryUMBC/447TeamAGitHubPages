@@ -1,5 +1,7 @@
 import dbInteraction
 
+dbInteraction.initDatabase('sqlite:///database.db')
+
 while(True):
     print("\n1. Search Database")
     print("2. Add to Database")
@@ -14,7 +16,7 @@ while(True):
             
             try:
                 resList = dbInteraction.search(param)
-                print("Found:", resList[0][0])
+                print("Found:", resList['md5'])
                 done = True
             except ValueError as error:
                 print(type(error).__name__ + ":", error)

@@ -1,11 +1,17 @@
+import json
 import sqlalchemy as session
 import string
 
-engine = session.create_engine('sqlite:///database.db')
-conn = engine.connect()
-meta = session.MetaData(bind=None)
 
-viruses = session.Table('viruses', meta, autoload = True, autoload_with = engine)
+
+def initDatabase(dbPath):
+    engine = session.create_engine(dbPath, connect_args={'check_same_thread':False})
+    global conn 
+    conn = engine.connect()
+    meta = session.MetaData(bind=None)
+    global viruses
+    viruses = session.Table('viruses', meta, autoload = True, autoload_with = engine)
+    
 
 def search(hashNum):
     # Removes all the spaces in the input hashNum & converts to lowercase
@@ -28,7 +34,7 @@ def search(hashNum):
     if(len(results) == 0):
         raise ValueError("Hash not found in local database")
     
-    return results
+    return {"md5": str(results[0][0])}
 
 
 def add(hashNum):
@@ -38,20 +44,21 @@ def add(hashNum):
     try:
         s = search(hashNum)
         if(s[0][0] == hashNum):
-            return ValueError("Hash already in local database")
+            raise ValueError("Hash already in local database")
     except ValueError as error:
         if(error.args[0] == "Hash not found in local database"):
             conn.execute(viruses.insert().values(fileHash = hashNum))
         else:
-            return error
+            raise error
     
 def delete(hashNum):
+    global conn
     hashNum = hashNum.replace(" ", "").strip().lower()
     
     # Ensure the hash tuple exists in local database
     try:
         search(hashNum)
     except ValueError as error:
-        return error
+        raise error
     
     conn.execute(viruses.delete().where(viruses.columns.fileHash == hashNum))
