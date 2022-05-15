@@ -6,7 +6,7 @@ def vtSearch():
     result = requests.get("http://localhost:5000/VTSearch/" + hashNum)
     
     return result
-
+    
 
 def dbSearch():
     hashNum = input("Hash Number: ")
