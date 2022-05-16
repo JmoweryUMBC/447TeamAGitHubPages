@@ -11,7 +11,6 @@ CORS(app)
 
 db.initDatabase('sqlite:///database/database.db')
 
-
 @app.route("/DBSearch/<string:hashNum>")
 def DBSearch(hashNum):
     try:
@@ -19,9 +18,10 @@ def DBSearch(hashNum):
     except ValueError as error:
         return json.dumps({"error": str(error)}), 500
 
-@app.route("/VTSearch/<string:hashNum>", methods =["POST"])
+@app.route("/VTSearch/<string:hashNum>", methods =["POST", "GET"])
 def VTSearch(hashNum):
     try:
         return api.hashLookup(hashNum)
     except ValueError as error:
-        return json.dumps({"error": str(error)}), 500
+        print(error)
+        return jsonify({"error": str(error)}), 500

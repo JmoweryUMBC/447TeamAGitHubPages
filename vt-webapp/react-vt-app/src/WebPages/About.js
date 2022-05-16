@@ -1,5 +1,5 @@
 import React from 'react';
-import {CTA, Brand, Navbar} from '../components';
+import {CTA, Navbar} from '../components';
 
 function About() {
   return (

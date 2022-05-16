@@ -1,5 +1,5 @@
 import React from 'react'
-import {Data, Brand, Navbar, DBSearchBar} from '../components';
+import {Data, Navbar, DBSearchBar} from '../components';
 import DBHeader from '../containers/DBHeader/DBHeader';
 import Virusinfo from '../example.json'
 
