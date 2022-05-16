@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {CTA, Brand, Navbar} from './components';
+import {CTA, Navbar} from './components';
 import {BrowserRouter as Router, Routes, Route, Link  } from "react-router-dom";
 import VTSearch from "./WebPages/VTSearch";
 import About from "./WebPages/About";

@@ -59,7 +59,7 @@ const cta = () => {
             <table cellpadding="0" cellspacing="0" border="0">
               <thead>
               <tr>
-                <th>Scans</th>
+                <th>Website</th>
                 <th>Detected</th>
                 <th>Version</th>
                 <th>Result</th>

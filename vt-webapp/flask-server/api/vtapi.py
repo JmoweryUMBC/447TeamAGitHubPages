@@ -27,9 +27,8 @@ def hashLookup(hashNum):
         raise ValueError("Invalid hash number")
         
     result = response.json()
-        
+
     # Returns an error if the hash is not found by the VT API
     if(result['response_code'] == 0):
         raise ValueError("Hash not found by VirusTotal API")
-    
     return result
