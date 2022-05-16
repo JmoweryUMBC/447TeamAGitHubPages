@@ -1,36 +1,25 @@
 import React from 'react';
-import './DBSearchBar.css';
+import './VTSearchBar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import { useState, useEffect } from "react";
-import { Form, Input } from 'semantic-ui-react';
-
+import APIServices from './APIServices';
 const VTSearchBar = () => {
-        const [hash, setHash] = useState('');
+        const [hash, setHash] = useState([]);
+        const Search = (Virushash) => {
+          setHash(Virushash)
+          APIServices.SearchHash(hash)
+          .then(resp => console.log(resp))
+          .catch(error => console.log(error))
+        }
+        
         return (
-          <Form>
                 <div className = 'SearchBlock'>
                   <div className = "Search_Input">
-                  <Form.field>
-                    <Input type="text" placeholder="Enter Hash Here" value={hash} onChange={e => setHash(e.target.value)}/>
-                  </Form.field>
-                  <Form.field>
-                    <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={async() => {
-                        const response = await fetch('/VTSearch/<string:hashNum>', {
-                                method: 'POST',
-                                headers: {
-                                        'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(hash)
-                        })
-                        if(response.ok){
-                                console.log('response worked')
-                        }
-                    }}> </Button>
-                  </Form.field>
+                    <input type="text" placeholder="Enter Hash Here" value={hash} onChange={e => setHash(e.target.value)}/>
+                    <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={() => Search(hash)}></Button>
                   </div>
                 </div>
-          </Form>
         )
 }
 

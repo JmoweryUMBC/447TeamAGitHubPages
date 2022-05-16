@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import './cta.css';
+import Virusinfo from './example.json'
 
 const cta = () => {
+    /*
     const [data, filedata] = useState({
       md5: '',
       positives: '',
@@ -48,7 +50,7 @@ const cta = () => {
         })
       )
     }, []);
-
+*/
     return (
         <>
         <div className= 'table'>

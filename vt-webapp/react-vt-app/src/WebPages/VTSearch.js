@@ -11,7 +11,6 @@ function VTSearch() {
       <Navbar />
       <VTHeader />
       <VTSearchBar />
-      <Data />
     </>
   );
 }
