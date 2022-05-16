@@ -5,14 +5,27 @@ import { Button } from '@mui/material';
 import { useState, useEffect } from "react";
 import APIServices from './APIServices';
 //import {Text} from 'react-native';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 
 const VTSearchBar = () => {
-
+        const rows = []
+        const [tableRows, setTableRows] = useState([]);
         const [Virushash, setVirushash] = useState([]);
         const [error, setError] = useState("");
         let results;
+
+        function createRow(name, detected, type) {
+          rows.push({name, detected, type})
+        }
         
-        const Search = (Virushash) => {
+        const SearchVT = (Virushash) => {
           fetch(`http://localhost:5000/VTSearch/${Virushash}`)
           .then( resp => {
             results = resp.json()
@@ -39,21 +52,25 @@ const VTSearchBar = () => {
               results.then(value => {
                 for(let key in value["scans"]) {
                   console.log("Website: " + key + "  Detected: " + value["scans"][key]["detected"])
-                }
+                  //createRow(key, value["scans"][key]["detected"], value["scans"][key]["result"])
+                  createRow("RandomWebsite", true, "Win32.Ramnit.N")
+              }
+                setTableRows(rows)
               })
+
             }
           })
         }
-      
 
         return (
+          <>
                 <div className = 'SearchBlock'>
                   <div className = "Search_Input">
                     <input type="text" placeholder="Enter Hash Here" value={Virushash} onChange={e => setVirushash(e.target.value)}/>
-                    <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={() => Search(Virushash)}></Button>
-
+                    <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={() => SearchVT(Virushash)}></Button>
                   </div>
                 </div>
+          </>
         )
 }
 
