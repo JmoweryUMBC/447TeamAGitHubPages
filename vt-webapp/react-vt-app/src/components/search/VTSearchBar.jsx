@@ -15,21 +15,54 @@ import Paper from '@mui/material/Paper';
 
 
 const VTSearchBar = () => {
-        const rows = []
-        const [tableRows, setTableRows] = useState([]);
+        const [tableCode, setTableCode] = useState();
         const [Virushash, setVirushash] = useState([]);
         const [error, setError] = useState("");
         let results;
 
         function createRow(name, detected, type) {
-          rows.push({name, detected, type})
+          return ({name, detected, type})
+        }
+
+        function updateTableRows(value) {
+          const rows = []
+
+          for(let key in value["scans"]) {
+            rows.push(createRow(key, String(value["scans"][key]["detected"]), value["scans"][key]["result"]))
+          }
+
+          let tableRows = (rows.map((row) => (
+            <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableCell component="th" scope="row">{row.name}</TableCell>
+              <TableCell align="right">{row.detected}</TableCell>
+              <TableCell align="right">{row.type}</TableCell>
+            </TableRow>
+          )))
+
+            setTableCode(
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Provider</TableCell>
+                      <TableCell align="right">Detected</TableCell>
+                      <TableCell align="right">Type</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {tableRows}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            )
         }
         
         const SearchVT = (Virushash) => {
           fetch(`http://localhost:5000/VTSearch/${Virushash}`)
           .then( resp => {
             results = resp.json()
-            if(resp.status == 500) {
+            console.log(results)
+            if(resp.status === 500) {
               console.log("Error somewhere w/ " + Virushash)
               results.then(value => {
                 console.log("Error desc: " + value["error"])
@@ -37,25 +70,18 @@ const VTSearchBar = () => {
                 //Call displaying error data on page
                 //Change default error text to error
                 setError("Error: " + value["error"])
-
+                setTableCode([])
               })
-              console.log(results)
 
-            } else if(resp.status == 200) {
+            } else if(resp.status === 200) {
               console.log("Success w/ " + Virushash)
               results.then(value => {
                 console.log("Results: " + value["positives"] + "/" + value["total"])
               })
-              console.log(results)
 
               //Call displaying successful data on page
               results.then(value => {
-                for(let key in value["scans"]) {
-                  console.log("Website: " + key + "  Detected: " + value["scans"][key]["detected"])
-                  //createRow(key, value["scans"][key]["detected"], value["scans"][key]["result"])
-                  createRow("RandomWebsite", true, "Win32.Ramnit.N")
-              }
-                setTableRows(rows)
+                updateTableRows(value)
               })
 
             }
@@ -70,6 +96,7 @@ const VTSearchBar = () => {
                     <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={() => SearchVT(Virushash)}></Button>
                   </div>
                 </div>
+                {tableCode}
           </>
         )
 }

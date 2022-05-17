@@ -11,11 +11,11 @@ import Paper from '@mui/material/Paper';
 const Display = (results) => {
     
     results.then(value => {
-        for(let key in value["scans"]) {
-            console.log("Website: " + key + "  Detected: " + value["scans"][key]["detected"])
-            //createRow(key, value["scans"][key]["detected"], value["scans"][key]["result"])
-            createRow("RandomWebsite", true, "Win32.Ramnit.N")
-        }
+      for(let key in value["scans"]) {
+          console.log("Website: " + key + "  Detected: " + value["scans"][key]["detected"])
+          //createRow(key, value["scans"][key]["detected"], value["scans"][key]["result"])
+          createRow("RandomWebsite", true, "Win32.Ramnit.N")
+      }
     }
     
     function createRow(name, detected, type) {
