@@ -106,7 +106,7 @@ const VTSearchBar = () => {
                 //Change default error text to error
                 setErrorInfo("Error: " + value["error"])
                 setHashInfo("")
-                setDetectedData("")
+                setDetectedData('')
                 setTableCode([])
               })
 
@@ -143,7 +143,7 @@ const VTSearchBar = () => {
                   <p className= 'Resulthash'>{hashInfo}</p>
                 </div>
                 <div>
-                  <p className='Resulthash'>{detectedData}</p>
+                  <p className= 'Resulthash'>{detectedData}</p>
                 </div>
                 <div className = "Reacttable">
                   {tableCode}
