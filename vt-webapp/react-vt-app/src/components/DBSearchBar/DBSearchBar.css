@@ -1,7 +1,7 @@
 .SearchBlock{
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 25px;
 }
 
 .Search_Input{
@@ -21,7 +21,6 @@
     border-bottom: 2px solid black;
     border-right: 2px solid black;
     border-radius: 25px 0 0 25px;
-    border-left: 0 solid;
     border-left-color: url(../../images/backgroundphoto.jpeg);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
@@ -62,4 +61,15 @@
     background: url(../../images/backgroundphoto.jpeg);
     background-position: 50% 80%;
     border-radius: 25px;
+}
+
+.Hasherror{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.Hasherror p {
+    color: red;
+    font-family: Marker Felt, fantasy;
 }

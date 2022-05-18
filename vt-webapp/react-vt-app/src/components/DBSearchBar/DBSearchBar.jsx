@@ -1,8 +1,9 @@
 import React from 'react';
-import './DBSearchBar.css';
+import styles from './DBSearchBar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState, useEffect } from "react";
 import { Button } from '@mui/material';
+import { Input } from '@mui/material';
 
 const DBSearchBar = () => {
         const [Virushash, setVirushash] = useState([]);
@@ -40,15 +41,19 @@ const DBSearchBar = () => {
 
   return (
     <>
-    <p>{errorInfo}</p>
+    <div className= 'Hasherror'>
+      <p>{errorInfo}</p>
+    </div>
     <div className = 'SearchBlock'>
-      <div className = "Search_Input">
+      <div className = 'Search_Input'>
         <input type="text" placeholder="Enter Hash Here" value={Virushash} onChange={e => setVirushash(e.target.value)}/>
         <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={() => SearchDB(Virushash)}></Button>
       </div>
     </div>
-    <p>{hashInfo}</p>
-    <p>{detectedData}</p>
+    <div className= 'Hashinfo'>
+      <p>{hashInfo}</p>
+      <p>{detectedData}</p>
+    </div>
     </>
   )
 }
