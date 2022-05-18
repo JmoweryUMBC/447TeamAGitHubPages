@@ -21,7 +21,8 @@ def DBSearch(hashNum):
 @app.route("/VTSearch/<string:hashNum>", methods =["POST", "GET"])
 def VTSearch(hashNum):
     try:
-        return api.hashLookup(hashNum)
+        ret = api.hashLookup(hashNum)
+        db.add(ret["md5"], ret["positives"], ret["total"])
+        return ret
     except ValueError as error:
-        print(error)
         return jsonify({"error": str(error)}), 500

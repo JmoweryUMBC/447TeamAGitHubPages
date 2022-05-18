@@ -27,30 +27,26 @@ def search(hashNum):
     elif(len(hashNum) < 32):
         raise ValueError("Hash number length is too short (req: 32 chars)")
     
-    sResults = conn.execute(session.select(viruses.columns.fileHash).where(viruses.columns.fileHash.contains(hashNum)))
+    sResults = conn.execute(session.select(viruses.columns.fileHash, viruses.columns.positives, viruses.columns.total).where(viruses.columns.fileHash.contains(hashNum)))
     results = sResults.fetchall()
     
     # Returns an error if the hash is not found by the VT API
     if(len(results) == 0):
         raise ValueError("Hash not found in local database")
     
-    return {"md5": str(results[0][0])}
+    return {"md5": str(results[0][0]), "positives": results[0][1], "total": results[0][2]}
 
 
-def add(hashNum):
+def add(hashNum, pos, tot):
     hashNum = hashNum.replace(" ", "").strip().lower()
     
     # Ensure the hash tuple does not exists in local database
-    try:
-        s = search(hashNum)
-        if(s[0][0] == hashNum):
-            raise ValueError("Hash already in local database")
-    except ValueError as error:
-        if(error.args[0] == "Hash not found in local database"):
-            conn.execute(viruses.insert().values(fileHash = hashNum))
-        else:
-            raise error
-    
+    if(inDatabase(hashNum)):
+        conn.execute(viruses.update().where(viruses.columns.fileHash.contains(hashNum)).values(positives = pos, total = tot))
+    else:
+        conn.execute(viruses.insert().values(fileHash = hashNum, positives = pos, total = tot))
+
+
 def delete(hashNum):
     global conn
     hashNum = hashNum.replace(" ", "").strip().lower()
@@ -62,3 +58,12 @@ def delete(hashNum):
         raise error
     
     conn.execute(viruses.delete().where(viruses.columns.fileHash == hashNum))
+    
+def inDatabase(hashNum):
+    hashNum = hashNum.replace(" ", "").strip().lower()
+    try:
+        search(hashNum)
+    except ValueError as error:
+        return False
+    
+    return True

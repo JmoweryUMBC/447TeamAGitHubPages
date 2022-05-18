@@ -23,7 +23,9 @@ while(True):
         
     elif(option == '2'):
         param = input("Complete Hash to Add: ")
-        error = dbInteraction.add(param)
+        positives = input("Number of positive Detects: ")
+        total = input("Number of total provider searches: ")
+        error = dbInteraction.add(param, positives, total)
         
         if(error):
             print(type(error).__name__ + ":", error)
