@@ -19,7 +19,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const VTSearchBar = () => {
         const [tableCode, setTableCode] = useState();
         const [Virushash, setVirushash] = useState([]);
-        const [error, setError] = useState("");
+
+        const [errorInfo, setErrorInfo] = useState([]);
+        const [hashInfo, setHashInfo] = useState([])
+        const [detectedData, setDetectedData] = useState("");
       
         const tableContainer: SxProps = {
           border: '1px solid rgba(128,128,128,0.4)',
@@ -82,7 +85,9 @@ const VTSearchBar = () => {
 
                 //Call displaying error data on page
                 //Change default error text to error
-                setError("Error: " + value["error"])
+                setErrorInfo("Error: " + value["error"])
+                setHashInfo("")
+                setDetectedData("")
                 setTableCode([])
               })
 
@@ -91,6 +96,9 @@ const VTSearchBar = () => {
               results.then(value => {
                 console.log("Results: " + value["positives"] + "/" + value["total"])
                 updateTableRows(value)
+                setErrorInfo("")
+                setHashInfo("Results For Hash: " + value["md5"])
+                setDetectedData("Malicious Detections: " + value["positives"] + "/" + value["total"])
               })
 
             }
@@ -100,7 +108,7 @@ const VTSearchBar = () => {
         return (
           <>
                 <div className= 'Hasherror'>
-                  <p>{error}</p>
+                  <p>{errorInfo}</p>
                 </div>
                 <div className = 'SearchBlock'>
                   <div className = "Search_Input">
@@ -108,6 +116,8 @@ const VTSearchBar = () => {
                     <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={() => SearchVT(Virushash)}></Button>
                   </div>
                 </div>
+                <p>{hashInfo}</p>
+                <p>{detectedData}</p>
                 <div className = "Reacttable">
                   {tableCode}
                 </div>
