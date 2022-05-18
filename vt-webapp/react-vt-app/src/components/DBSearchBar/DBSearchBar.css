@@ -73,3 +73,23 @@
     color: red;
     font-family: Marker Felt, fantasy;
 }
+
+.Hashinfo{
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: Impact, fantasy;
+}
+
+.Hashvirusdata{
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: Impact, fantasy;
+}

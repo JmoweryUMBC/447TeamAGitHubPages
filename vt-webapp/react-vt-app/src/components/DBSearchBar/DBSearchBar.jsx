@@ -32,7 +32,7 @@ const DBSearchBar = () => {
                   //console.log("Results: " + value["positives"] + "/" + value["total"])
                   setErrorInfo("")
                   setHashInfo("Results For Hash: " + value["md5"])
-                  //setDetectedData("Malicious Detections: " + value["positives"] + "/" + value["total"])
+                  setDetectedData("Malicious Detections: " + value["positives"] + "/" + value["total"])
                 })
               }
 
@@ -52,8 +52,11 @@ const DBSearchBar = () => {
     </div>
     <div className= 'Hashinfo'>
       <p>{hashInfo}</p>
+    </div>
+    <div className= 'Hashvirusdata'>
       <p>{detectedData}</p>
     </div>
+    
     </>
   )
 }

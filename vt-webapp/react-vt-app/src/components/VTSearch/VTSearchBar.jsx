@@ -15,6 +15,8 @@ import Paper from '@mui/material/Paper';
 import SxProps from "@mui/material";
 import { lightBlue } from '@mui/material/colors';
 import { makeStyles } from '@material-ui/core/styles';
+import { Pie } from 'react-chartjs-2';
+import {Chartjs, Tooltip, Title, ArcElement, Legend} from 'chart.js'
 
 const VTSearchBar = () => {
         const [tableCode, setTableCode] = useState();
@@ -23,7 +25,23 @@ const VTSearchBar = () => {
         const [errorInfo, setErrorInfo] = useState([]);
         const [hashInfo, setHashInfo] = useState([])
         const [detectedData, setDetectedData] = useState("");
+        /*const [positives, setPositives] = useState();
+        //const [negatives, setNegatives] = useState();
+        //const [piechart, Setpiechart] = useState([]);
       
+        const chart = {
+          datasets: [{
+            data: [positives],
+            backgroundColor:[
+              'green'
+            ]
+          }],
+          labels : [
+            'Green'
+          ]
+        }
+        */
+
         const tableContainer: SxProps = {
           border: '1px solid rgba(128,128,128,0.4)',
           width: "max-content",
@@ -73,6 +91,7 @@ const VTSearchBar = () => {
               </TableContainer>
             )
         }
+
         const SearchVT = (Virushash) => {
           fetch(`http://localhost:5000/VTSearch/${Virushash}`)
           .then( resp => {
@@ -99,6 +118,8 @@ const VTSearchBar = () => {
                 setErrorInfo("")
                 setHashInfo("Results For Hash: " + value["md5"])
                 setDetectedData("Malicious Detections: " + value["positives"] + "/" + value["total"])
+                //setPositives(value['positives'])
+                //Setpiechart(<Pie data={chart}/>)
               })
 
             }
@@ -110,14 +131,20 @@ const VTSearchBar = () => {
                 <div className= 'Hasherror'>
                   <p>{errorInfo}</p>
                 </div>
+                
                 <div className = 'SearchBlock'>
                   <div className = "Search_Input">
                     <input type="text" placeholder="Enter Hash Here" value={Virushash} onChange={e => setVirushash(e.target.value)}/>
                     <Button className = "Search_icon" endIcon= {<SearchIcon />} onClick ={() => SearchVT(Virushash)}></Button>
                   </div>
                 </div>
-                <p>{hashInfo}</p>
-                <p>{detectedData}</p>
+
+                <div>
+                  <p className= 'Resulthash'>{hashInfo}</p>
+                </div>
+                <div>
+                  <p className='Resulthash'>{detectedData}</p>
+                </div>
                 <div className = "Reacttable">
                   {tableCode}
                 </div>
