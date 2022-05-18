@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .Search_Input{
@@ -62,4 +63,10 @@
     background: url(../../images/backgroundphoto.jpeg);
     background-position: 50% 80%;
     border-radius: 25px;
+}
+.Reacttable{
+    display: flex;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 50px;
 }
