@@ -17,6 +17,7 @@ import { lightBlue } from '@mui/material/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import { Pie } from 'react-chartjs-2';
 import {Chartjs, Tooltip, Title, ArcElement, Legend} from 'chart.js'
+import { borderColor } from '@mui/system';
 
 const VTSearchBar = () => {
         const [tableCode, setTableCode] = useState();
@@ -25,22 +26,6 @@ const VTSearchBar = () => {
         const [errorInfo, setErrorInfo] = useState([]);
         const [hashInfo, setHashInfo] = useState([])
         const [detectedData, setDetectedData] = useState("");
-        /*const [positives, setPositives] = useState();
-        //const [negatives, setNegatives] = useState();
-        //const [piechart, Setpiechart] = useState([]);
-      
-        const chart = {
-          datasets: [{
-            data: [positives],
-            backgroundColor:[
-              'green'
-            ]
-          }],
-          labels : [
-            'Green'
-          ]
-        }
-        */
 
         const tableContainer: SxProps = {
           border: '1px solid rgba(128,128,128,0.4)',
@@ -108,6 +93,7 @@ const VTSearchBar = () => {
                 setHashInfo("")
                 setDetectedData("")
                 setTableCode([])
+                //setPiechartCode([])
               })
 
             } else if(resp.status === 200) {
@@ -118,11 +104,9 @@ const VTSearchBar = () => {
                 setErrorInfo("")
                 setHashInfo("Results For Hash: " + value["md5"])
                 setDetectedData("Malicious Detections: " + value["positives"] + "/" + value["total"])
-                //setPositives(value['positives'])
-                //Setpiechart(<Pie data={chart}/>)
               })
-
             }
+
           })
         }
 
