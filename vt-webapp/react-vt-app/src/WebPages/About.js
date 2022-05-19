@@ -1,11 +1,13 @@
 import React from 'react';
-import {CTA, Navbar} from '../components';
+import { Navbar} from '../components';
+import { AboutUs } from '../components';
 
 function About() {
   return (
-    <div>
+    <>
       <Navbar />
-    </div>
+      <AboutUs />
+    </>
   );
 }
 export default About

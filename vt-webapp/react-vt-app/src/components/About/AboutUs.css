@@ -1,0 +1,116 @@
+.AboutHeader{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.AboutHeader h1{
+    color: white;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    padding-right: 30px;
+}
+
+.containers{
+    display: flex;
+    padding-top: 30px;
+}
+
+.Mission{
+    float: left;
+    margin-right: 200px;
+    display: block;
+}
+.MissionHeader{
+    margin-left: 60px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+
+.ContactHeader{
+    margin-left: 40px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+
+.CreatorHeader{
+    margin-left: 40px;
+    color: White;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+
+.Creators{
+    float: left;
+    padding-right: 200px;
+    margin-left: 50px;
+}
+
+.Contact{
+    float: left;
+    padding-left: 50px;
+}
+
+.containers{
+    width: 1200px;
+    height:600px;
+    padding-top:60px;
+    padding-left:30px;
+    padding-right:30px;
+    margin-left: 125px;
+}
+
+.info{
+    padding-top: 40px;
+    text-align: center;
+    padding-left: 20px;
+    width: 200px;
+    color: white;
+    font-family: markerfelt;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.Creatorinfo{
+    padding-top: 40px;
+    text-align: center;
+    width: 200px;
+    color: white;
+    font-family: markerfelt;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.Contactinfo{
+    padding-top: 40px;
+    text-align: center;
+    width: 200px;
+    color: white;
+    font-family: markerfelt;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+}
+
+
+a{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 20px;
+    border-color: black;
+}
+a:hover{
+    color: lightblue;
+}
