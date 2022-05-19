@@ -10,6 +10,9 @@ const DBSearchBar = () => {
         const [hashInfo, setHashInfo] = useState([])
         const [detectedData, setDetectedData] = useState("");
         const [errorInfo, setErrorInfo] = useState([]);
+        const [totalSearches, settotalSearches] = useState(0);
+        const [successSearches, setsuccessSearches] = useState(0);
+        const [failedSearches, setfailedSearches] = useState(0);
         let results;
 
         const SearchDB = (Virushash) => {
@@ -25,6 +28,8 @@ const DBSearchBar = () => {
                   setErrorInfo("Error: " + value["error"])
                   setHashInfo("")
                   setDetectedData("")
+                  setfailedSearches(failedSearches +1)
+                  settotalSearches(totalSearches + 1)
                 })
               } else if(resp.status === 200) {
                 console.log("Success w/ " + Virushash)
@@ -33,6 +38,8 @@ const DBSearchBar = () => {
                   setErrorInfo("")
                   setHashInfo("Results For Hash: " + value["md5"])
                   setDetectedData("Malicious Detections: " + value["positives"] + "/" + value["total"])
+                  settotalSearches(totalSearches + 1);
+                  setsuccessSearches(successSearches +1);
                 })
               }
 
@@ -41,6 +48,12 @@ const DBSearchBar = () => {
 
   return (
     <>
+    <div className ='SearchAnalytics'>
+      <h1>Search Analytics</h1>
+      <p>Total Searches: {totalSearches}</p>
+      <p>Successful Searches: {successSearches}</p>
+      <h2>Failed Searches: {failedSearches}</h2>
+    </div>
     <div className= 'Hasherror'>
       <p>{errorInfo}</p>
     </div>

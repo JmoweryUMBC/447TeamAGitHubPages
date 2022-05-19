@@ -26,6 +26,9 @@ const VTSearchBar = () => {
         const [errorInfo, setErrorInfo] = useState([]);
         const [hashInfo, setHashInfo] = useState([])
         const [detectedData, setDetectedData] = useState("");
+        const [totalSearches, settotalSearches] = useState(0);
+        const [successSearches, setsuccessSearches] = useState(0);
+        const [failedSearches, setfailedSearches] = useState(0);
 
         const tableContainer: SxProps = {
           border: '1px solid rgba(128,128,128,0.4)',
@@ -93,6 +96,8 @@ const VTSearchBar = () => {
                 setHashInfo("")
                 setDetectedData('')
                 setTableCode([])
+                setfailedSearches(failedSearches +1)
+                settotalSearches(totalSearches + 1)
                 //setPiechartCode([])
               })
 
@@ -104,6 +109,8 @@ const VTSearchBar = () => {
                 setErrorInfo("")
                 setHashInfo("Results For Hash: " + value["md5"])
                 setDetectedData("Malicious Detections: " + value["positives"] + "/" + value["total"])
+                settotalSearches(totalSearches + 1);
+                setsuccessSearches(successSearches +1);
               })
             }
 
@@ -112,6 +119,12 @@ const VTSearchBar = () => {
 
         return (
           <>
+                <div className ='SearchAnalytics'>
+                  <h1>Search Analytics</h1>
+                    <p>Total Searches: {totalSearches}</p>
+                    <p>Successful Searches: {successSearches}</p>
+                    <h2>Failed Searches: {failedSearches}</h2>
+                </div>
                 <div className= 'Hasherror'>
                   <p>{errorInfo}</p>
                 </div>
