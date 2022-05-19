@@ -85,5 +85,31 @@
     font-size: 30px;
     font-family: Impact, fantasy;
 }
+.SearchAnalytics{
+    padding-top: 20px;
+}
+.SearchAnalytics p{
+    color: lightgreen;
+    font-family: Marker Felt, fantasy;
+    text-align: center;
+    padding-top: 10px;
+}
+.SearchAnalytics h1{
+    color: lightgreen;
+    font-family: Marker Felt, fantasy;
+    text-align: center;
+}
+
+.analyticinfo {
+    padding-top: 20px;
+}
+
+.SearchAnalytics h2{
+    color: red;
+    font-family: Marker Felt, fantasy;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 10px;
+}
 
 
